@@ -1,0 +1,852 @@
+{
+	"info": {
+		"_postman_id": "51ac11b4-aa67-49ca-be33-cd0d7b2963bd",
+		"name": "Birthday",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34741044"
+	},
+	"item": [
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"mr.mhd.reza@gmail.com\",\n  \"full_name\": \"Reza Pahlevi\",\n  \"birthday\": \"2025-06-15\",\n  \"timezone\": \"Asia/Tokyo\" \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"mr.mhd.reza@gmail.com\",\n  \"full_name\": \"Reza Pahlevi\",\n  \"birthday\": \"2025-06-15\",\n  \"timezone\": \"Asia/Calcutta\" \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "235"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"eb-gbSp2GET/w7hqFpv9tbu6EFQuoI\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 04 Jan 2025 17:03:02 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"da9649fb-d26b-41b5-8caa-36914e704a7c\",\n    \"email\": \"mr.mhd.reza@gmail.com\",\n    \"full_name\": \"Reza Pahlevi\",\n    \"birthday\": \"2025-06-15\",\n    \"timezone\": \"Asia/Calcutta\",\n    \"created_at\": \"2025-01-04T10:03:02.844Z\",\n    \"updated_at\": \"2025-01-04T10:03:02.844Z\"\n}"
+				},
+				{
+					"name": "Error email exist",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"mr.mhd.reza@gmail.com\",\n  \"full_name\": \"Reza Pahlevi\",\n  \"birthday\": \"2025-06-15\",\n  \"timezone\": \"Asia/Calcutta\" \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"status": "Conflict",
+					"code": 409,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "32"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"20-N0CbDIzmlWyrjCtE3NXOzGCeBnY\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 04 Jan 2025 17:17:05 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"Email already exists\"\n}"
+				},
+				{
+					"name": "Error body invalid",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"mr.mhd.reza@gmailcom\",\n  \"full_name\": \"RP\",\n  \"birthday\": \"2025-06-32\",\n  \"timezone\": \"\" \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "216"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"d8-SnnDfce+6FFka1sRpiZoSmy5Ou0\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 04 Jan 2025 17:31:46 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"Validation failed\",\n    \"details\": [\n        \"\\\"email\\\" must be a valid email\",\n        \"\\\"full_name\\\" length must be at least 3 characters long\",\n        \"\\\"birthday\\\" contains an invalid value\",\n        \"\\\"timezone\\\" is not allowed to be empty\"\n    ]\n}"
+				},
+				{
+					"name": "Error body invalid 2",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"mr.mhd.reza@gmail.com\",\n  \"full_name\": \"Reza Pahlevi\",\n  \"birthday\": \"2025-06-3\",\n  \"timezone\": \"Asia/Calcutta\" \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "90"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"5a-pFLQWoWDRlgGRU/ltIppqTxxOvg\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 04 Jan 2025 17:33:03 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"Validation failed\",\n    \"details\": [\n        \"\\\"birthday\\\" length must be 10 characters long\"\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete User",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/users/aff4c904-958d-4df3-b96b-ea283a4b9db6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"aff4c904-958d-4df3-b96b-ea283a4b9db6"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users/4466623e-2dff-49a1-b613-6742d607f0ef",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"4466623e-2dff-49a1-b613-6742d607f0ef"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "71"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"47-39y5CkNZhq4BmyFjVvxby0yGAgk\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 04 Jan 2025 17:43:38 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"User with ID 4466623e-2dff-49a1-b613-6742d607f0ef deleted\"\n}"
+				},
+				{
+					"name": "Error id invalid",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users/4466623e-2dff-49a1-b613-6742d607f0ef",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"4466623e-2dff-49a1-b613-6742d607f0ef"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "33"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"21-sp6zN/6lcMg40ZOs9HfeGeqcITc\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 04 Jan 2025 17:46:17 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"Failed to delete user\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update User",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"full_name\": \"Reza Pahlevi Bos\",\n  \"birthday\": \"2025-06-30\",\n  \"timezone\": \"Asia/Tokyo\" \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/users/aff4c904-958d-4df3-b96b-ea283a4b9db6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"aff4c904-958d-4df3-b96b-ea283a4b9db6"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"full_name\": \"Muhammad Reza Pahlevi\",\n  \"birthday\": \"1997-06-15\",\n  \"timezone\": \"Asia/Singapore\" \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/b6c655c0-6a78-4114-bdbd-103b7a4d9823",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"b6c655c0-6a78-4114-bdbd-103b7a4d9823"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "245"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"f5-b2H0qsoufysSUs01b1LuRGW8GdA\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 04 Jan 2025 18:17:53 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"b6c655c0-6a78-4114-bdbd-103b7a4d9823\",\n    \"email\": \"mr.mhd.reza@gmail.com\",\n    \"full_name\": \"Muhammad Reza Pahlevi\",\n    \"birthday\": \"1997-06-15\",\n    \"timezone\": \"Asia/Singapore\",\n    \"created_at\": \"2025-01-04T10:58:13.165Z\",\n    \"updated_at\": \"2025-01-04T18:17:52.997Z\"\n}"
+				},
+				{
+					"name": "Error id invalid",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"full_name\": \"Reza Pahlevi\",\n  \"birthday\": \"2025-06-30\",\n  \"timezone\": \"Asia/Calcutta\" \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/8f649a93-adcf-4683-a529-3c2bb21c0b8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"8f649a93-adcf-4683-a529-3c2bb21c0b8"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "27"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1b-gNNwyKm7kBPDX44b+qBDzdQ4Cjo\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 04 Jan 2025 17:57:03 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"Invalid user ID\"\n}"
+				},
+				{
+					"name": "Error body invalid",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"full_name\": \"RP\",\n  \"birthday\": \"2025-06-32\",\n  \"timezone\": \"\" \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/b6c655c0-6a78-4114-bdbd-103b7a4d9823",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"b6c655c0-6a78-4114-bdbd-103b7a4d9823"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "182"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"b6-Zt8hTtMjYIpGmBfQwShqXd2ACBE\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 04 Jan 2025 17:58:42 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"Validation failed\",\n    \"details\": [\n        \"\\\"full_name\\\" length must be at least 3 characters long\",\n        \"\\\"birthday\\\" contains an invalid value\",\n        \"\\\"timezone\\\" is not allowed to be empty\"\n    ]\n}"
+				},
+				{
+					"name": "Error body invalid 2",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"full_name\": \"Reza Pahlevi\",\n  \"birthday\": \"2025-06-3\",\n  \"timezone\": \"Asia/Calcutta\" \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/b6c655c0-6a78-4114-bdbd-103b7a4d9823",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"b6c655c0-6a78-4114-bdbd-103b7a4d9823"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "90"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"5a-pFLQWoWDRlgGRU/ltIppqTxxOvg\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 04 Jan 2025 17:59:04 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"Validation failed\",\n    \"details\": [\n        \"\\\"birthday\\\" length must be 10 characters long\"\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Get User",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/users/aff4c904-958d-4df3-b96b-ea283a4b9db6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"aff4c904-958d-4df3-b96b-ea283a4b9db6"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users/b6c655c0-6a78-4114-bdbd-103b7a4d9823",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"b6c655c0-6a78-4114-bdbd-103b7a4d9823"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "245"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"f5-b2H0qsoufysSUs01b1LuRGW8GdA\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 05 Jan 2025 02:17:56 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"b6c655c0-6a78-4114-bdbd-103b7a4d9823\",\n    \"email\": \"mr.mhd.reza@gmail.com\",\n    \"full_name\": \"Muhammad Reza Pahlevi\",\n    \"birthday\": \"1997-06-15\",\n    \"timezone\": \"Asia/Singapore\",\n    \"created_at\": \"2025-01-04T10:58:13.165Z\",\n    \"updated_at\": \"2025-01-04T18:17:52.997Z\"\n}"
+				},
+				{
+					"name": "Error id invalid",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users/b6c655c0-6a78-4114-bdbd-103b7a4d9824",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"b6c655c0-6a78-4114-bdbd-103b7a4d9824"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "30"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1e-dpMNf0SK+eBBvlfk6UL1fpN6Czw\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 05 Jan 2025 02:23:35 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"Failed to get user\"\n}"
+				}
+			]
+		}
+	]
+}

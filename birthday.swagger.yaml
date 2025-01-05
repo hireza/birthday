@@ -1,0 +1,436 @@
+openapi: 3.0.0
+info:
+  title: Birthday
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+paths:
+  /users:
+    post:
+      tags:
+        - default
+      summary: Create User
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                email: mr.mhd.reza@gmail.com
+                full_name: Reza Pahlevi
+                birthday: "2025-06-15"
+                timezone: Asia/Tokyo
+      responses:
+        "201":
+          description: Created
+          headers:
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: "235"
+            ETag:
+              schema:
+                type: string
+                example: W/"eb-gbSp2GET/w7hqFpv9tbu6EFQuoI"
+            Date:
+              schema:
+                type: string
+                example: Sat, 04 Jan 2025 17:03:02 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: da9649fb-d26b-41b5-8caa-36914e704a7c
+                email: mr.mhd.reza@gmail.com
+                full_name: Reza Pahlevi
+                birthday: "2025-06-15"
+                timezone: Asia/Calcutta
+                created_at: "2025-01-04T10:03:02.844Z"
+                updated_at: "2025-01-04T10:03:02.844Z"
+        "400":
+          description: Bad Request
+          headers:
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: "216"
+            ETag:
+              schema:
+                type: string
+                example: W/"d8-SnnDfce+6FFka1sRpiZoSmy5Ou0"
+            Date:
+              schema:
+                type: string
+                example: Sat, 04 Jan 2025 17:31:46 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              examples:
+                example-0:
+                  summary: Error body invalid
+                  value:
+                    error: Validation failed
+                    details:
+                      - '"email" must be a valid email'
+                      - '"full_name" length must be at least 3 characters long'
+                      - '"birthday" contains an invalid value'
+                      - '"timezone" is not allowed to be empty'
+                example-1:
+                  summary: Error body invalid 2
+                  value:
+                    error: Validation failed
+                    details:
+                      - '"birthday" length must be 10 characters long'
+        "409":
+          description: Conflict
+          headers:
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: "32"
+            ETag:
+              schema:
+                type: string
+                example: W/"20-N0CbDIzmlWyrjCtE3NXOzGCeBnY"
+            Date:
+              schema:
+                type: string
+                example: Sat, 04 Jan 2025 17:17:05 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error: Email already exists
+  /users/aff4c904-958d-4df3-b96b-ea283a4b9db6:
+    delete:
+      tags:
+        - default
+      summary: Delete User
+      responses:
+        "200":
+          description: OK
+          headers:
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: "71"
+            ETag:
+              schema:
+                type: string
+                example: W/"47-39y5CkNZhq4BmyFjVvxby0yGAgk"
+            Date:
+              schema:
+                type: string
+                example: Sat, 04 Jan 2025 17:43:38 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                message: User with ID 4466623e-2dff-49a1-b613-6742d607f0ef deleted
+        "500":
+          description: Internal Server Error
+          headers:
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: "33"
+            ETag:
+              schema:
+                type: string
+                example: W/"21-sp6zN/6lcMg40ZOs9HfeGeqcITc"
+            Date:
+              schema:
+                type: string
+                example: Sat, 04 Jan 2025 17:46:17 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error: Failed to delete user
+    put:
+      tags:
+        - default
+      summary: Update User
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                full_name: Reza Pahlevi Bos
+                birthday: "2025-06-30"
+                timezone: Asia/Tokyo
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        "200":
+          description: OK
+          headers:
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: "245"
+            ETag:
+              schema:
+                type: string
+                example: W/"f5-b2H0qsoufysSUs01b1LuRGW8GdA"
+            Date:
+              schema:
+                type: string
+                example: Sat, 04 Jan 2025 18:17:53 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: b6c655c0-6a78-4114-bdbd-103b7a4d9823
+                email: mr.mhd.reza@gmail.com
+                full_name: Muhammad Reza Pahlevi
+                birthday: "1997-06-15"
+                timezone: Asia/Singapore
+                created_at: "2025-01-04T10:58:13.165Z"
+                updated_at: "2025-01-04T18:17:52.997Z"
+        "400":
+          description: Bad Request
+          headers:
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: "27"
+            ETag:
+              schema:
+                type: string
+                example: W/"1b-gNNwyKm7kBPDX44b+qBDzdQ4Cjo"
+            Date:
+              schema:
+                type: string
+                example: Sat, 04 Jan 2025 17:57:03 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              examples:
+                example-0:
+                  summary: Error id invalid
+                  value:
+                    error: Invalid user ID
+                example-1:
+                  summary: Error body invalid
+                  value:
+                    error: Validation failed
+                    details:
+                      - '"full_name" length must be at least 3 characters long'
+                      - '"birthday" contains an invalid value'
+                      - '"timezone" is not allowed to be empty'
+                example-2:
+                  summary: Error body invalid 2
+                  value:
+                    error: Validation failed
+                    details:
+                      - '"birthday" length must be 10 characters long'
+    get:
+      tags:
+        - default
+      summary: Get User
+      responses:
+        "200":
+          description: OK
+          headers:
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: "245"
+            ETag:
+              schema:
+                type: string
+                example: W/"f5-b2H0qsoufysSUs01b1LuRGW8GdA"
+            Date:
+              schema:
+                type: string
+                example: Sun, 05 Jan 2025 02:17:56 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: b6c655c0-6a78-4114-bdbd-103b7a4d9823
+                email: mr.mhd.reza@gmail.com
+                full_name: Muhammad Reza Pahlevi
+                birthday: "1997-06-15"
+                timezone: Asia/Singapore
+                created_at: "2025-01-04T10:58:13.165Z"
+                updated_at: "2025-01-04T18:17:52.997Z"
+        "500":
+          description: Internal Server Error
+          headers:
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: "30"
+            ETag:
+              schema:
+                type: string
+                example: W/"1e-dpMNf0SK+eBBvlfk6UL1fpN6Czw"
+            Date:
+              schema:
+                type: string
+                example: Sun, 05 Jan 2025 02:23:35 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error: Failed to get user

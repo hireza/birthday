@@ -1,0 +1,50 @@
+{
+  "name": "birthday",
+  "version": "1.0.0",
+  "description": "A simple application to send birthday messages to users",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "npm run build && node dist/index.js",
+    "dev": "nodemon -e ts --exec 'ts-node' src/index.ts",
+    "migrate": "migrate",
+    "test": "jest -i --colors --verbose --detectOpenHandles",
+    "test:watch": "jest -i --watchAll",
+    "test:coverage": "jest -i --coverage",
+    "test:coverage:precentage": "jest -i --coverage --coverageReporters='text-summary'",
+    "prettier": "prettier --check '**/*.{js,ts,tsx}'",
+    "prettier:fix": "prettier --write '**/*.{js,ts,tsx}'"
+  },
+  "dependencies": {
+    "@temporalio/activity": "^1.11.5",
+    "@temporalio/client": "^1.11.5",
+    "@temporalio/worker": "^1.11.5",
+    "@temporalio/workflow": "^1.11.5",
+    "axios": "^1.4.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "http-errors": "^2.0.0",
+    "joi": "^17.13.3",
+    "moment-timezone": "^0.5.44",
+    "morgan": "^1.10.0",
+    "pg": "^8.13.1",
+    "uuid": "^11.0.3",
+    "winston": "^3.17.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/http-errors": "^2.0.4",
+    "@types/jest": "^29.5.14",
+    "@types/morgan": "^1.9.9",
+    "@types/pg": "^8.11.10",
+    "@types/supertest": "^6.0.2",
+    "@types/winston": "^2.4.4",
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.9",
+    "prettier": "^3.4.2",
+    "supertest": "^7.0.0",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  }
+}
